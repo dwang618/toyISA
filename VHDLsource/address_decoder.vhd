@@ -1,0 +1,16 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+ENTITY address_decoder IS
+port (
+address_bus : in std_logic_vector(4 downto 0);
+ce_0 : out std_logic;
+ce_1 : out std_logic
+);
+END address_decoder;
+ARCHITECTURE gate_level OF address_decoder IS
+BEGIN
+
+ce_1 <= address_bus(0) and address_bus(1) and address_bus(2) and address_bus(3) and address_bus(4);
+ce_0 <= not(address_bus(0) and address_bus(1) and address_bus(2) and address_bus(3) and address_bus(4));
+
+END gate_level;
